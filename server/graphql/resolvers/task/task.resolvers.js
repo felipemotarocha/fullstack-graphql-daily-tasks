@@ -29,5 +29,12 @@ module.exports = {
 
 			return task;
 		},
+		toggleTaskStatus: async (_parent, { id }) => {
+			const task = await Task.findById(id);
+			task.isCompleted = !task.isCompleted;
+			await task.save();
+
+			return task;
+		},
 	},
 };
