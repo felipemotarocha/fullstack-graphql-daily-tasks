@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import Button from "@material-ui/core/Button";
 
 export const Container = styled.div`
 	color: white;
 	height: 95%;
 	position: relative;
 	display: grid;
-	grid-template-rows: 12% 83% 5%;
+	grid-template-rows: 12% 80% 8%;
 `;
 
 export const Headline = styled.div`
@@ -32,8 +31,4 @@ export const TasksContainer = styled.div`
 export const ButtonContainer = styled.div`
 	margin: 10px 0;
 	border-radius: 8px;
-`;
-
-export const StyledButton = styled(Button)`
-	width: 100%;
 `;

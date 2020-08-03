@@ -1,5 +1,4 @@
 import React from "react";
-import AddIcon from "@material-ui/icons/Add";
 import moment from "moment";
 
 import {
@@ -7,12 +6,12 @@ import {
 	Headline,
 	Subtitle,
 	ButtonContainer,
-	StyledButton,
 	TasksContainer,
 	Title,
 } from "./task-list.styles";
 
 import { default as TaskItem } from "../task-item/task-item.container";
+import { default as AddTaskButton } from "../add-task-button/add-task-button.container";
 
 const today = new Date();
 
@@ -30,13 +29,7 @@ const TaskList = ({ tasks }) => {
 				))}
 			</TasksContainer>
 			<ButtonContainer>
-				<StyledButton
-					color="primary"
-					variant="contained"
-					startIcon={<AddIcon />}
-				>
-					Add a Task
-				</StyledButton>
+				<AddTaskButton />
 			</ButtonContainer>
 		</Container>
 	);

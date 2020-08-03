@@ -10,3 +10,14 @@ export const TOGGLE_TASK_STATUS = gql`
 		}
 	}
 `;
+
+export const NEW_TASK = gql`
+	mutation NewTask($description: String!) {
+		newTask(description: $description) {
+			id
+			description
+			isCompleted
+			conclusionTime
+		}
+	}
+`;
