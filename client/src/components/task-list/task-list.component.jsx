@@ -1,5 +1,6 @@
 import React from "react";
 import AddIcon from "@material-ui/icons/Add";
+import moment from "moment";
 
 import {
 	Container,
@@ -13,12 +14,14 @@ import {
 
 import { default as TaskItem } from "../task-item/task-item.container";
 
+const today = new Date();
+
 const TaskList = ({ tasks }) => {
 	return (
 		<Container>
 			<Headline>
 				<Title>My Day</Title>
-				<Subtitle>Monday, 3 August</Subtitle>
+				<Subtitle>{moment(today).format("dddd, MMMM D")}</Subtitle>
 			</Headline>
 
 			<TasksContainer>

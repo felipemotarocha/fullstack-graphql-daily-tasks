@@ -6,6 +6,7 @@ export const TOGGLE_TASK_STATUS = gql`
 			id
 			description
 			isCompleted
+			conclusionTime
 		}
 	}
 `;
