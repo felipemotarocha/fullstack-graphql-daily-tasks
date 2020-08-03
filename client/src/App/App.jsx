@@ -1,12 +1,25 @@
 import React from "react";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { Container } from "./App.styles";
 
+import Home from "../pages/home.component";
+
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: "#bbe1fa",
+		},
+	},
+});
+
 const App = () => {
 	return (
-		<Container>
-			<h1>hello world!</h1>
-		</Container>
+		<ThemeProvider theme={theme}>
+			<Container>
+				<Home />
+			</Container>
+		</ThemeProvider>
 	);
 };
 
