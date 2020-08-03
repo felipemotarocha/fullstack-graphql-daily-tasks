@@ -5,7 +5,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 import { Container, Content, Description } from "./task-item.styles";
 
-const TaskItem = ({ task: { description, isCompleted } }) => {
+const TaskItem = ({ task: { description, isCompleted }, toggleTaskStatus }) => {
 	return (
 		<Container isCompleted={isCompleted}>
 			<Content>
@@ -16,6 +16,7 @@ const TaskItem = ({ task: { description, isCompleted } }) => {
 					icon={<RadioButtonUncheckedIcon style={{ color: "white" }} />}
 					checkedIcon={<CheckCircleIcon />}
 					size="medium"
+					onClick={toggleTaskStatus}
 				/>
 				<Description isCompleted={isCompleted}>{description}</Description>
 			</Content>

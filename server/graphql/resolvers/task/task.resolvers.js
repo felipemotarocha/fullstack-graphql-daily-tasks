@@ -15,6 +15,7 @@ module.exports = {
 
 	Query: {
 		task: async (_parent, { id }) => await Task.findById(id),
+		tasks: async () => await Task.find({}),
 	},
 
 	Mutation: {

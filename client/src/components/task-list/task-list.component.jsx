@@ -11,20 +11,9 @@ import {
 	Title,
 } from "./task-list.styles";
 
-import TaskItem from "../task-item/task-item.component";
+import { default as TaskItem } from "../task-item/task-item.container";
 
-const tasks = [
-	{
-		description: "Study Code",
-		isCompleted: true,
-	},
-	{
-		description: "Read",
-		isCompleted: false,
-	},
-];
-
-const TaskList = () => {
+const TaskList = ({ tasks }) => {
 	return (
 		<Container>
 			<Headline>
@@ -34,7 +23,7 @@ const TaskList = () => {
 
 			<TasksContainer>
 				{tasks.map((task) => (
-					<TaskItem task={task} />
+					<TaskItem key={task.id} task={task} />
 				))}
 			</TasksContainer>
 			<ButtonContainer>
