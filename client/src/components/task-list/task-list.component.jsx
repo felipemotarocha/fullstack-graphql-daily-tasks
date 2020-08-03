@@ -1,6 +1,15 @@
 import React from "react";
+import AddIcon from "@material-ui/icons/Add";
 
-import { Container, Headline, Subtitle } from "./task-list.styles";
+import {
+	Container,
+	Headline,
+	Subtitle,
+	ButtonContainer,
+	StyledButton,
+	TasksContainer,
+	Title,
+} from "./task-list.styles";
 
 import TaskItem from "../task-item/task-item.component";
 
@@ -18,11 +27,25 @@ const tasks = [
 const TaskList = () => {
 	return (
 		<Container>
-			<Headline>My Day</Headline>
-			<Subtitle>Monday, 3 August</Subtitle>
-			{tasks.map((task) => (
-				<TaskItem task={task} />
-			))}
+			<Headline>
+				<Title>My Day</Title>
+				<Subtitle>Monday, 3 August</Subtitle>
+			</Headline>
+
+			<TasksContainer>
+				{tasks.map((task) => (
+					<TaskItem task={task} />
+				))}
+			</TasksContainer>
+			<ButtonContainer>
+				<StyledButton
+					color="primary"
+					variant="contained"
+					startIcon={<AddIcon />}
+				>
+					Add a Task
+				</StyledButton>
+			</ButtonContainer>
 		</Container>
 	);
 };
