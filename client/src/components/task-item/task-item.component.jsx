@@ -7,8 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AlarmOnIcon from "@material-ui/icons/AlarmOn";
 
-import { GET_TASKS } from "../../graphql/queries/task/task.queries";
-
+import { confirmTaskDeleteOpenVar } from "../../graphql/cache";
 import {
 	Container,
 	Content,
@@ -18,10 +17,11 @@ import {
 	ConcludedAt,
 } from "./task-item.styles";
 
+import { default as ConfirmTaskDeleteDialog } from "../confirm-delete-dialog/confirm-task-delete-dialog.container";
+
 const TaskItem = ({
 	task: { id, description, isCompleted, conclusionTime },
 	toggleTaskStatus,
-	deleteTask,
 	isEditable,
 }) => {
 	return (
@@ -55,12 +55,7 @@ const TaskItem = ({
 					<IconButton
 						style={{ color: "#cf1b1b" }}
 						size="small"
-						onClick={() =>
-							deleteTask({
-								variables: { id },
-								refetchQueries: [{ query: GET_TASKS }],
-							})
-						}
+						onClick={() => confirmTaskDeleteOpenVar({ isOpen: true })}
 					>
 						<DeleteIcon />
 					</IconButton>
@@ -68,6 +63,7 @@ const TaskItem = ({
 					""
 				)}
 			</Info>
+			<ConfirmTaskDeleteDialog id={id} />
 		</Container>
 	);
 };

@@ -10,3 +10,11 @@ export const GET_TASKS = gql`
 		}
 	}
 `;
+
+export const GET_CONFIRM_TASK_DELETE_OPEN = gql`
+	query ConfirmTaskDeleteOpen {
+		confirmTaskDeleteOpen @client {
+			isOpen
+		}
+	}
+`;

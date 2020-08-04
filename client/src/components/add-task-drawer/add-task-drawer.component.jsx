@@ -55,6 +55,7 @@ const AddTaskDrawer = ({ isOpen, newTask }) => {
 						value={description}
 						onChange={({ target: { value } }) => setDescription(value)}
 						size="small"
+						autoFocus
 					/>
 					<IconButton
 						onClick={() => {
