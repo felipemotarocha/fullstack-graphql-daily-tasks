@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	width: 100%;
-	background-color: #0f4c75;
+	background-color: #1b1c25;
 	box-shadow: 5px 9px 31px -25px rgba(0, 0, 0, 0.75);
 	position: fixed;
 	left: 0;
@@ -11,7 +11,6 @@ export const Container = styled.div`
 	color: white;
 	padding: 10px;
 	z-index: 5;
-	opacity: 95%;
 `;
 
 export const Headline = styled.span`

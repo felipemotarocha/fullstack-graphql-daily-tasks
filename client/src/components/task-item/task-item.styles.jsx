@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-	background: #1b262c;
+	background: #1b1c25;
 	border-radius: 8px;
 	padding: 5px;
 	margin: 5px 0;
@@ -20,27 +20,32 @@ export const Content = styled.div`
 
 export const Description = styled.span`
 	font-size: 0.9rem;
-	color: #eee;
+	color: #ebecf1;
 	text-decoration: ${(props) => (props.isCompleted ? "line-through" : "none")};
 	line-break: anywhere;
 	transition: all 350ms ease;
 `;
 
-export const ConcludedAt = styled.div`
+export const Info = styled.div`
 	display: flex;
 	align-items: center;
-	flex-direction: column;
+	flex-direction: row;
 	justify-self: flex-end;
 	font-size: 0.8rem;
 	margin-right: 5px;
-	opacity: ${(props) => (props.isCompleted ? "100%" : "0")};
 	transition: all 300ms ease;
+	color: #4bb543;
 `;
 
-export const Text = styled.span`
+export const ConcludedAt = styled.span`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	text-align: center;
+	margin-right: 5px;
 `;
 
 export const Time = styled.span`
-	font-weight: 400;
+	font-weight: 500;
+	margin-left: 2px;
 `;

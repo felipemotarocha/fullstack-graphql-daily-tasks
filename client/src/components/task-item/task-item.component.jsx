@@ -3,19 +3,26 @@ import Checkbox from "@material-ui/core/Checkbox";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import moment from "moment";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import AlarmOnIcon from "@material-ui/icons/AlarmOn";
+
+import { GET_TASKS } from "../../graphql/queries/task/task.queries";
 
 import {
 	Container,
 	Content,
 	Description,
-	ConcludedAt,
-	Text,
+	Info,
 	Time,
+	ConcludedAt,
 } from "./task-item.styles";
 
 const TaskItem = ({
-	task: { description, isCompleted, conclusionTime },
+	task: { id, description, isCompleted, conclusionTime },
 	toggleTaskStatus,
+	deleteTask,
+	isEditable,
 }) => {
 	return (
 		<Container isCompleted={isCompleted}>
@@ -33,16 +40,34 @@ const TaskItem = ({
 				<Description isCompleted={isCompleted}>{description}</Description>
 			</Content>
 
-			<ConcludedAt isCompleted={isCompleted}>
-				{conclusionTime && isCompleted ? (
-					<>
-						<Text>Concluded at:</Text>
-						<Time>{moment(conclusionTime).format("LT")}</Time>
-					</>
+			<Info>
+				<ConcludedAt>
+					{conclusionTime && isCompleted ? (
+						<>
+							<AlarmOnIcon size="small" />
+							<Time>{moment(conclusionTime).format("LT")}</Time>
+						</>
+					) : (
+						""
+					)}
+				</ConcludedAt>
+				{isEditable ? (
+					<IconButton
+						style={{ color: "#cf1b1b" }}
+						size="small"
+						onClick={() =>
+							deleteTask({
+								variables: { id },
+								refetchQueries: [{ query: GET_TASKS }],
+							})
+						}
+					>
+						<DeleteIcon />
+					</IconButton>
 				) : (
 					""
 				)}
-			</ConcludedAt>
+			</Info>
 		</Container>
 	);
 };

@@ -42,5 +42,9 @@ module.exports = {
 
 			return task;
 		},
+		deleteTask: async (_parent, { id }) => {
+			const task = await Task.findByIdAndDelete(id);
+			return task;
+		},
 	},
 };

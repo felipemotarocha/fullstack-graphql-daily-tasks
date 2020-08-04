@@ -12,20 +12,20 @@ const StyledTextField = withStyles({
 	root: {
 		width: "100%",
 		"& label.Mui-focused": {
-			color: "#bbe1fa",
+			color: "#effffb",
 		},
 		"& .MuiInput-underline:after": {
-			borderBottomColor: "#bbe1fa",
+			borderBottomColor: "#effffb",
 		},
 		"& .MuiOutlinedInput-root": {
 			"& fieldset": {
-				borderColor: "#bbe1fa",
+				borderColor: "#effffb",
 			},
 			"&:hover fieldset": {
-				borderColor: "#bbe1fa",
+				borderColor: "#effffb",
 			},
 			"&.Mui-focused fieldset": {
-				borderColor: "#bbe1fa",
+				borderColor: "#effffb",
 			},
 		},
 	},
@@ -42,7 +42,6 @@ const AddTaskDrawer = ({ isOpen, newTask }) => {
 						id="task-description"
 						label="Description"
 						variant="outlined"
-						color="primary"
 						InputLabelProps={{
 							style: {
 								color: "white",
@@ -73,8 +72,9 @@ const AddTaskDrawer = ({ isOpen, newTask }) => {
 								alert("Please insert a description for your note.");
 							}
 						}}
+						style={{ color: "#effffb" }}
 					>
-						<AddIcon color="secondary" />
+						<AddIcon />
 					</IconButton>
 				</TextFieldContainer>
 			</Container>

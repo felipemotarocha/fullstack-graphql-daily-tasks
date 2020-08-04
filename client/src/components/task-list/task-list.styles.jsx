@@ -35,3 +35,10 @@ export const TasksContainer = styled.div`
 export const ButtonContainer = styled.div`
 	align-self: flex-end;
 `;
+
+export const EditButton = styled.div`
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 10px;
+`;
