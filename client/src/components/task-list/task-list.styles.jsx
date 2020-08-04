@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	color: white;
-	height: 95%;
-	position: relative;
-	display: grid;
-	grid-template-rows: 12% 80% 8%;
+	height: 97%;
+	display: flex;
+	flex-direction: column;
 `;
 
 export const Headline = styled.div`
 	display: flex;
+	justify-content: space-between;
+	margin: 5px 0;
+`;
+
+export const TextContainer = styled.div`
+	display: flex;
 	flex-direction: column;
-	justify-content: center;
 `;
 
 export const Title = styled.span`
@@ -29,6 +33,5 @@ export const TasksContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-	margin: 10px 0;
-	border-radius: 8px;
+	align-self: flex-end;
 `;

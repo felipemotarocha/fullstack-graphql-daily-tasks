@@ -22,7 +22,7 @@ const TaskItem = ({
 			<Content>
 				<Checkbox
 					checked={isCompleted}
-					color="primary"
+					color="secondary"
 					inputProps={{ "aria-label": "secondary checkbox" }}
 					icon={<RadioButtonUncheckedIcon style={{ color: "white" }} />}
 					checkedIcon={<CheckCircleIcon />}

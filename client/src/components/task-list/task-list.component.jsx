@@ -8,6 +8,7 @@ import {
 	ButtonContainer,
 	TasksContainer,
 	Title,
+	TextContainer,
 } from "./task-list.styles";
 
 import { default as TaskItem } from "../task-item/task-item.container";
@@ -19,8 +20,13 @@ const TaskList = ({ tasks }) => {
 	return (
 		<Container>
 			<Headline>
-				<Title>My Day</Title>
-				<Subtitle>{moment(today).format("dddd, MMMM D")}</Subtitle>
+				<TextContainer>
+					<Title>My Day</Title>
+					<Subtitle>{moment(today).format("dddd, MMMM D")}</Subtitle>
+				</TextContainer>
+				<ButtonContainer>
+					<AddTaskButton />
+				</ButtonContainer>
 			</Headline>
 
 			<TasksContainer>
@@ -28,9 +34,6 @@ const TaskList = ({ tasks }) => {
 					<TaskItem key={task.id} task={task} />
 				))}
 			</TasksContainer>
-			<ButtonContainer>
-				<AddTaskButton />
-			</ButtonContainer>
 		</Container>
 	);
 };

@@ -8,7 +8,6 @@ export const Container = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
-	width: 100%;
 	margin-top: 20px;
 `;
 

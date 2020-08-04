@@ -19,21 +19,26 @@ module.exports = {
 	},
 
 	Mutation: {
-		newTask: (_parent, { description }) => {
+		newTask: async (_parent, { description }) => {
 			const task = new Task({
 				day: new Date(),
 				description,
 				isCompleted: false,
 				conclusionTime: null,
 			});
-			task.save();
+			await task.save();
 
 			return task;
 		},
 		toggleTaskStatus: async (_parent, { id }) => {
 			const task = await Task.findById(id);
 			task.isCompleted = !task.isCompleted;
-			await task.save();
+
+			task.isCompleted
+				? (task.conclusionTime = new Date())
+				: (task.conclusionTime = null);
+
+			task.save();
 
 			return task;
 		},

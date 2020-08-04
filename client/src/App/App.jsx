@@ -8,6 +8,9 @@ import Home from "../pages/home.component";
 const theme = createMuiTheme({
 	palette: {
 		primary: {
+			main: "#0f4c75",
+		},
+		secondary: {
 			main: "#bbe1fa",
 		},
 	},
