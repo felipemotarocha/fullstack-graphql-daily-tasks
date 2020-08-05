@@ -35,7 +35,7 @@ const AddTaskDrawer = ({ isOpen, newTask }) => {
 	const [description, setDescription] = useState("");
 
 	return (
-		<Slide direction="up" in={isOpen} mountOnEnter>
+		<Slide direction="up" in={isOpen} unmountOnExit>
 			<Container>
 				<TextFieldContainer>
 					<StyledTextField

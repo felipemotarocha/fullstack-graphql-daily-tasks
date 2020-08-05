@@ -17,11 +17,20 @@ import {
 
 import { default as TaskItem } from "../task-item/task-item.container";
 import { default as AddTaskButton } from "../add-task-button/add-task-button.container";
+import { useEffect } from "react";
 
 const today = new Date();
 
 const TaskList = ({ tasks }) => {
 	const [isEditable, setIsEditable] = useState(false);
+	const [completedTasks, setCompletedTasks] = useState([]);
+	const [uncompletedTasks, setUncompletedTasks] = useState([]);
+
+	useEffect(() => {
+		setCompletedTasks(tasks.filter((task) => task.isCompleted));
+		setUncompletedTasks(tasks.filter((task) => !task.isCompleted));
+	}, [tasks]);
+
 	return (
 		<Container>
 			<Headline>
@@ -35,7 +44,10 @@ const TaskList = ({ tasks }) => {
 			</Headline>
 
 			<TasksContainer>
-				{tasks.map((task) => (
+				{completedTasks.map((task) => (
+					<TaskItem key={task.id} task={task} isEditable={isEditable} />
+				))}
+				{uncompletedTasks.map((task) => (
 					<TaskItem key={task.id} task={task} isEditable={isEditable} />
 				))}
 			</TasksContainer>
