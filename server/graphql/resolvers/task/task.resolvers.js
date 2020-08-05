@@ -1,5 +1,6 @@
 const Task = require("../../../models/task/task.model");
 const { GraphQLScalarType } = require("graphql");
+const moment = require("moment");
 
 module.exports = {
 	Date: new GraphQLScalarType({
@@ -16,6 +17,12 @@ module.exports = {
 	Query: {
 		task: async (_parent, { id }) => await Task.findById(id),
 		tasks: async () => await Task.find({}),
+		tasksByDay: async (_parent, { day }) => {
+			const tasks = await Task.find({});
+			return tasks.filter(
+				(task) => moment(task.day).format("dddd").toString() === day
+			);
+		},
 	},
 
 	Mutation: {

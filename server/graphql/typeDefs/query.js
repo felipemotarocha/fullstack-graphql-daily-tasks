@@ -4,5 +4,6 @@ module.exports = gql`
 	type Query {
 		task(id: ID!): Task!
 		tasks: [Task!]
+		tasksByDay(day: String!): [Task!]
 	}
 `;
